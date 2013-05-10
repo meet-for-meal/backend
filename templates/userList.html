@@ -1,0 +1,12 @@
+<div id="main">
+  <h1>Liste des utilisateurs</h1>
+  <div id="users-list"></div>
+</div>
+
+<script id="list-template" type="text/x-template">
+  <ul>
+    <% _.each(users, function (user) { %>
+      <li><%= user.username %></li>
+    <% }); %>
+  </ul>
+</script>
