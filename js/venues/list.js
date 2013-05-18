@@ -1,30 +1,13 @@
 require([
   'jquery',
   'underscore',
-  '../js/Foursquare'
+  'Foursquare'
 ], function ($, _, Foursquare) {
   // Change when real one is available
-  var backUrl = 'http://localhost:3000',
-      foursquareApiUrl = 'https://api.foursquare.com/v2/',
-      foursquareOauthToken = 'CKTMK32OZVMXUXXHSHBUJXGLIV2AYFUN00SG5ICMET3B5TQN';
+  var backUrl = 'http://localhost:3000';
 
   var venueListTemplate = _.template($('#list-template').html()),
       $main             = $('#venues-list');
-
-  var foursquareRequest = function (url, params, success, error) {
-    if(!params) params = {};
-    if(!success) success = function(){};
-    if(!error) error = function(){};
-    params.oauth_token = foursquareOauthToken;
-    var req = $.ajax({
-      url: foursquareApiUrl + url,
-      dataType: 'jsonp',
-      type: 'get',
-      data: params
-    });
-    req.done(success);
-    req.fail(error);
-  };
 
   var loadVenues = function (venues) {
     var len = venues.length;

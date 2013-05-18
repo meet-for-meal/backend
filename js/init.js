@@ -5,7 +5,9 @@ require.config({
     jquery:     'libs/jquery-2.0.0',
     bootstrap:  'libs/bootstrap',
     underscore: 'libs/underscore',
-    text:       'libs/text'
+    text:       'libs/text',
+    Util:       'js/Util',
+    Foursquare: 'js/Foursquare'
   },
   shim: {
     underscore: {
