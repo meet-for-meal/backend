@@ -13,3 +13,12 @@ body {
     padding-right: 5px;
   }
 }
+#map {
+  width: 700px;
+  height: 400px;
+}
+
+#map img {
+  /* Fix Twitter Bootstrap affecting Google Maps */
+  max-width: none;
+}
