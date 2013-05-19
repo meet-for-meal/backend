@@ -70,26 +70,26 @@ Les commandes ci-dessous ne doivent pas forcément respecter "l'orthographe" des
 
     [
       {
-        id: 1,
-        foursquare_id: '4cf6ef5d1801a143eedbecd4',
-        partnership: 'medium',
-        created_at: new Date(2013, 5, 11, 12, 0, 0)
+        "id": 1,
+        "foursquare_id": "4cf6ef5d1801a143eedbecd4",
+        "partnership": "medium",
+        "created_at": "2013-06-11T10:00:00.000Z"
       },
       {
-        id: 2,
-        foursquare_id: '4ba88bdcf964a52078df39e3',
-        partnership: 'high',
-        created_at: new Date(2013, 5, 11, 14, 30, 0)
+        "id": 2,
+        "foursquare_id": "4ba88bdcf964a52078df39e3",
+        "partnership": "high",
+        "created_at": "2013-06-11T12:30:00.000Z"
       }
     ]
 
 #### GET /venues/1
 
     {
-      id: 1,
-      foursquare_id: '4cf6ef5d1801a143eedbecd4',
-      partnership: 'medium',
-      created_at: new Date(2013, 5, 11, 12, 0, 0)
+      "id": 1,
+      "foursquare_id": "4cf6ef5d1801a143eedbecd4",
+      "partnership": "medium",
+      "created_at": "2013-06-11T10:00:00.000Z"
     }
 
 #### PUT /venues/1
