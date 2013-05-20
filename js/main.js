@@ -1,13 +1,27 @@
-require(['jquery', 'bootstrap'], function ($, Bootstrap) {
-  var page = $('#require-js').data('script');
-  require(['text!templates/layout.html'], function (layout) {
-    $('body').prepend(layout);
-    var $content = $('#content');
-    if(page) {
-      require(['text!templates/' + page + '.html'], function (pageContent) {
-        $content.html(pageContent);
-        require(['js/' + page]);
+require(['jquery', 'bootstrap', 'backbone'], function ($, Bootstrap, Backbone) {
+
+  var Router = Backbone.Router.extend({
+
+    routes: {
+      '':      'index',   // #
+      'users': 'userList' // #users
+    },
+
+    index: function() {
+      require(['js/views/indexView'], function (IndexView) {
+        new IndexView();
+      });
+    },
+
+    userList: function() {
+      require(['js/views/users/list'], function (userListView) {
+        new userListView();
       });
     }
+
   });
+
+  var router = new Router();
+  Backbone.history.start();
+
 });
