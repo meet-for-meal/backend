@@ -5,7 +5,9 @@ define([], function() {
     return {
 
       foursquareApiUrl: 'https://api.foursquare.com/v2/',
+
       foursquareOauthToken: 'CKTMK32OZVMXUXXHSHBUJXGLIV2AYFUN00SG5ICMET3B5TQN',
+
       request: function (url, params, success, error) {
         if(!params) params = {};
         if(!success) success = function(){};

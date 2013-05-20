@@ -48,6 +48,21 @@ define([], function() {
         req.done(success);
         req.fail(error);
         return req;
+      },
+
+      renderGoogleMap: function (lat, lng, markerName) {
+        var center = new google.maps.LatLng(lat, lng);
+        var mapOptions = {
+          center: center,
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        var marker = new google.maps.Marker({
+          position: center,
+          title: markerName
+        });
+        marker.setMap(map);
       }
 
     };

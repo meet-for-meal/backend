@@ -3,9 +3,12 @@ require(['jquery', 'bootstrap', 'backbone'], function ($, Bootstrap, Backbone) {
   var Router = Backbone.Router.extend({
 
     routes: {
-      '':               'index',    // /#
-      'users':          'userList', // /#users
-      'users/:id/edit': 'userEdit'  // /#users/:id/edit
+      '':                'index',     // #
+      'users':           'userList',  // #users
+      'users/:id/edit':  'userEdit',  // #users/:id/edit
+      'venues':          'venueList', // #venues
+      'venues/:id':      'venueShow', // #venues/:id
+      'venues/:id/edit': 'venueEdit', // #venues/:id/edit
     },
 
     index: function() {
@@ -13,6 +16,9 @@ require(['jquery', 'bootstrap', 'backbone'], function ($, Bootstrap, Backbone) {
         new IndexView();
       });
     },
+
+
+    /* Users */
 
     userList: function() {
       require(['js/views/users/list'], function (userListView) {
@@ -24,11 +30,32 @@ require(['jquery', 'bootstrap', 'backbone'], function ($, Bootstrap, Backbone) {
       require(['js/views/users/edit'], function (userEditView) {
         new userEditView({ userId: id });
       });
+    },
+
+
+    /* Venues */
+
+    venueList: function() {
+      require(['js/views/venues/list'], function (venueListView) {
+        new venueListView();
+      });
+    },
+
+    venueShow: function (id) {
+      require(['js/views/venues/show'], function (venueShowView) {
+        new venueShowView({ venueId: id });
+      });
+    },
+
+    venueEdit: function (id) {
+      require(['js/views/venues/edit'], function (venueEditView) {
+        new venueEditView({ venueId: id });
+      });
     }
 
   });
 
-  var router = new Router();
+  new Router();
   Backbone.history.start();
 
 });
