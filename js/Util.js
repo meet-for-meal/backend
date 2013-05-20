@@ -4,6 +4,8 @@ define([], function() {
 
     return {
 
+      backUrl: 'http://localhost:3000',
+
       queryString: (function() {
         // This function is anonymous, is executed immediately and
         // the return value is assigned to QueryString
@@ -25,9 +27,30 @@ define([], function() {
           }
         }
         return queryString;
-      })()
+      })(),
 
-    }
+      apiRequest: function (url, method, dataType, data, success, error) {
+        url = url || '/';
+        method = method || 'GET';
+        dataType = dataType || 'jsonp';
+        data = data || {};
+        success = success || function (){};
+        error = error || function (err) {
+          console.error(err);
+        };
+
+        var req = $.ajax({
+          url: this.backUrl + url,
+          type: method,
+          dataType: dataType,
+          data: data
+        });
+        req.done(success);
+        req.fail(error);
+        return req;
+      }
+
+    };
 
   })();
 

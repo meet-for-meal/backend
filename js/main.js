@@ -3,8 +3,9 @@ require(['jquery', 'bootstrap', 'backbone'], function ($, Bootstrap, Backbone) {
   var Router = Backbone.Router.extend({
 
     routes: {
-      '':      'index',   // #
-      'users': 'userList' // #users
+      '':               'index',    // /#
+      'users':          'userList', // /#users
+      'users/:id/edit': 'userEdit'  // /#users/:id/edit
     },
 
     index: function() {
@@ -16,6 +17,12 @@ require(['jquery', 'bootstrap', 'backbone'], function ($, Bootstrap, Backbone) {
     userList: function() {
       require(['js/views/users/list'], function (userListView) {
         new userListView();
+      });
+    },
+
+    userEdit: function(id) {
+      require(['js/views/users/edit'], function (userEditView) {
+        new userEditView({ userId: id });
       });
     }
 
